@@ -1,6 +1,8 @@
 
 .container{
-    padding: 60px 200px;
+    width: 1000px;
+    margin: auto;
+    margin-top: 80px;
 }
 .title{
     color: blue;
