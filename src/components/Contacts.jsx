@@ -2,6 +2,7 @@ import { useState } from 'react'
 import ContactList from './ContactList'
 import inputs from '../constants/inputs'
 import { v4 } from 'uuid'
+import styles from './Contacts.module.css'
 
 function Contacts() {
   const [alert, setAlert] = useState('')
@@ -48,8 +49,8 @@ function Contacts() {
   }
 
   return (
-    <div>
-      <div>
+    <div className={styles.container}>
+      <div className={styles.form}>
         {inputs.map((input, index) => (
           <input
             key={index}
@@ -63,7 +64,7 @@ function Contacts() {
         <button onClick={addHandler}>Add Contact</button>
       </div>
 
-      <div>{alert && <p>{alert}</p>}</div>
+      <div className={styles.alert}>{alert && <p>{alert}</p>}</div>
 
       <ContactList contacts={contacts} deleteHandler={deleteHandler} />
     </div>
