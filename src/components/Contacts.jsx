@@ -13,6 +13,7 @@ function Contacts() {
     email: '',
     phone: '',
   })
+
   const changeHandler = (event) => {
     const name = event.target.name
     const value = event.target.value
@@ -20,7 +21,7 @@ function Contacts() {
   }
 
   const addHandler = () => {
-    console.log(contact)
+    // console.log(contact)
     if (
       !contact.name ||
       !contact.lastName ||
@@ -41,6 +42,10 @@ function Contacts() {
       })
     }
   }
+  const deleteHandler = (id) => {
+    const newContacts = contacts.filter((contact) => contact.id !== id)
+    setContacts(newContacts)
+  }
 
   return (
     <div>
@@ -60,7 +65,7 @@ function Contacts() {
 
       <div>{alert && <p>{alert}</p>}</div>
 
-      <ContactList contacts={contacts} />
+      <ContactList contacts={contacts} deleteHandler={deleteHandler} />
     </div>
   )
 }
